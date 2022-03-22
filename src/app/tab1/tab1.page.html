@@ -9,13 +9,38 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Camara</ion-title>
+      <ion-buttons>
+
+        <ion-avatar slot="start" *ngIf="capturedImage">
+          <ion-img [src]="capturedImage"></ion-img>
+        </ion-avatar>
+
+      </ion-buttons>
+
+      <ion-title >Camara</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-row>
     <ion-col >
       <ion-button expand="block" (click)="presentAlert()">Full Button</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col >
+      <ion-button expand="block" (click)="addImage()">Muestra camara</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-avatar slot="start" *ngIf="!capturedImage" ><ion-img src="../../assets/images/avatar.jpg"></ion-img></ion-avatar>
+        <ion-avatar slot="start" *ngIf="capturedImage" ><ion-img [src]="capturedImage"></ion-img></ion-avatar>
+      </ion-item>
+      
+
     </ion-col>
   </ion-row>
 
